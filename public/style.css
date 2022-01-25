@@ -1,0 +1,36 @@
+
+body{
+    font-family: verdana, arial, sans-serif;
+    font-size: 15px;
+    background-color: rgb(236, 167, 122); 
+    text-align: center;
+}
+
+table.gridtable {
+    color: #337;
+    border-width: 1px;
+    border-color: #559;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table.gridtable th {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #559;
+    background-color: #cff;
+    text-align: left;
+}
+
+table.gridtable td {
+    border-width: 1px;
+    padding: 8px;
+    border-style: solid;
+    border-color: #559;
+    background-color: #fff;
+    text-align: left;
+}
+#logo{
+    width: 33%;
+}
