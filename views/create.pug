@@ -1,0 +1,8 @@
+extends layout 
+
+block content 
+    form(id='form' method='post' action='/create')
+        label(for='name') Enter New Player Name: 
+        input(type='text' name='name')
+        br
+        input(type='submit' value='Add New Player')

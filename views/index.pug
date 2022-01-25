@@ -1,0 +1,16 @@
+extends layout 
+
+block content 
+    table(class='gridtable')
+        tr  
+            th Player
+            th stuff
+            th Stuff 
+        each item in people
+            tr 
+                td 
+                    a(href='/details/' + item.name) #{item.name}
+                td 
+                td
+    p 
+        a(href='/create') Add New Player
