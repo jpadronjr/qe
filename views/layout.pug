@@ -1,7 +1,7 @@
 doctype 
 html 
     head 
-        title= "Tercerio" 
+        title= `Tercerio`
         link(href='/logo2.jpg' rel='icon')
         link(href='/style.css' rel='stylesheet')
     body 
@@ -11,8 +11,10 @@ html
             tr 
                 th 
                     img(src='/logo.jpg' id='logo')
-                th PLAY GAME
-                    
+                th
+                    a(href='/join') Join a Game
+                th  
+                    a(href='/start') Start a Game
                 th
                     h3=title
                     block content
