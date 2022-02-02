@@ -34,3 +34,18 @@ table.gridtable td {
 #logo{
     width: 33%;
 }
+#uDeck img{
+    width: 33%;
+    height: 75%;
+}
+#rDeck{
+    width: 33%;
+    height: 75%
+}
+
+.board{
+    display: grid; 
+    grid-template-columns: 1fr 1fr;
+    max-width: 600px;
+    margin: 0 auto;
+}

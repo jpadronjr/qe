@@ -11,7 +11,7 @@ const collection = db.collection('PlayerUsers');
 exports.index = async (req, res) => {
     await client.connect();
     const findResult = await collection.find({}).toArray();
-    console.log("Found documents => ", findResult);
+    //console.log("Found documents => ", findResult);
     client.close();
     res.render('index', {
         title: 'Player List',
@@ -32,7 +32,7 @@ exports.createPerson = async (req, res) => {
     };
     const insertResult = await collection.insertOne(person);
     client.close();
-    console.log(req.body.name + ' added');
+    //console.log(req.body.name + ' added');
     res.redirect('/');
 };
 
