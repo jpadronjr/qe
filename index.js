@@ -52,6 +52,7 @@ const getDeck = () => {
 
 }
 
+
 io.sockets.on('connection', function (socket) {
 
   let newDeck;
@@ -60,8 +61,11 @@ io.sockets.on('connection', function (socket) {
     socket.join(room)
 
     if (!roomArray.includes(room)) {
-      newDeck = getDeck();
+      console.log(room)
+      io.sockets.adapter.rooms.get(room).newDeck = getDeck();
+      // console.log(io.sockets.adapter.rooms.get(room).newDeck);
       roomArray.push(room);
+      
       //console.log('rooms added' + roomArray);
       //console.log(`new room ${room}`)
     } 
@@ -75,7 +79,7 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('draw', function (roomNum) {
     //disconnect
-    let card = newDeck.shift();
+    let card = io.sockets.adapter.rooms.get(roomNum).newDeck.shift();
     console.log(card);
     io.in(roomNum).emit('recieve card', card);
     roomList = roomNum;
