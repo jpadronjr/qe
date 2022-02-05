@@ -1,40 +1,54 @@
+
 const uDeck = document.getElementById('uDeck');//uncovered cards
 const rDeck = document.getElementById('rDeck');//hidden cars
 
-const suits = ["S", "D", "C", "H"];
-const values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
-
-const getDeck = () => {
-	let deck = new Array();
-
-	for(let i = 0; i < suits.length; i++)
-	{
-		for(let x = 0; x < values.length; x++)
-		{
-			let card = {Value: values[x], Suit: suits[i]};
-			deck.push(card);
-		}
-	}
-    deck.sort(() => (Math.random() > .5) ? 1 : -1);
-	return deck;
+const adduDeck = () => {
+	socket.emit('draw', a)//,card);
 }
 
+rDeck.addEventListener('click', adduDeck);
 
-let deck = getDeck();
-//console.log(deck);
+var socket = io.connect();
 
-// deck.forEach(card => {
-//     var img = document.createElement('img');
-//     img.src = `/Images/Cards/${card.Value}-${card.Suit}.png`;
-//     document.getElementById('rDeck').appendChild(img); 
-// });
+var a = Math.random();
 
-const adduDeck = () => {
-	let card = deck.shift();
+if(!window.location.href.includes('roomID=')){
+	window.location.href = window.location.href + 'roomID=' + a;
+} else {
+	a = window.location.href.split('roomID=')[1];
+}
+
+socket.on("connect", () => {
+	socket.emit('create room', a);
+});
+
+
+socket.on('recieve card', (card) => { 
 	var img = document.createElement('img');
     img.src = `/Images/Cards/${card.Value}-${card.Suit}.png`;
 	uDeck.innerHTML = "";
     document.getElementById('uDeck').appendChild(img);
-}
+});
 
-rDeck.addEventListener('click', adduDeck);
+
+// let game = {
+// 	gameState: 'runs',
+	
+// 	mainDeck: deck,
+
+// 	showing: card,
+
+// 	hand1: cards,
+// 	hand2: cards,
+
+// 	set11: cards,
+// 	set12: cards,
+// 	set13: cards,
+
+// 	set21: cards,
+// 	set22: cards,
+// 	set23: cards,
+
+// 	turn: player,
+// }
+
