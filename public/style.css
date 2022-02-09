@@ -42,13 +42,14 @@ table.gridtable {
     color: rgb(251, 251, 255);
     border-collapse: collapse;
     text-align: center;
+    width: 100%
 }
 
 table.gridtable th {
     text-align: center;
-    width: 150px;
+    /* width: 50%; */
     border-color: rgb(0, 38, 255);
-    padding: 15px;
+    padding: 20px;
     border-style: groove;
     border-radius:1vw;
     border-width: 7px;
@@ -58,13 +59,13 @@ table.gridtable th {
 
 table.gridtable td {
     text-align: center;
-    width: 150px;
+    /* width: 100%; */
     border-color: rgb(0, 38, 255);
-    padding: 15px;
+    padding: 10px;
     border-style: groove;
     border-radius: 5vw;
     border-width: 7px;
-    background-color: rgb(0, 38, 73);
+    background-color: rgb(0, 43, 83);
     font-size: 1vw;
 }
 #form{

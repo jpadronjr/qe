@@ -10,7 +10,8 @@ const collection = db.collection('PlayerUsers');
 
 exports.index = async (req, res) => {
     await client.connect();
-    const findResult = await collection.find({}).toArray();
+    const findResult = await (await collection.find({}).toArray()).splice(0, 5);
+    
     //console.log("Found documents => ", findResult);
     client.close();
     res.render('index', {
