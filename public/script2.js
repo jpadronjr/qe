@@ -12,8 +12,18 @@ var socket = io.connect();
 
 var a = Math.random();
 
+//if url doesnot include 'roomID=' then add it with room 
 if(!window.location.href.includes('roomID=')){
-	window.location.href = window.location.href + 'roomID=' + a;
+	// window.location.href = window.location.href + 'roomID=' + a;
+	window.location.replace('http://localhost:3000/start?roomID=' + a);
+}else{
+	a = window.location.href.split('roomID=')[1];
+}
+
+//if ID is longer then 25 redirect and alert
+if(a.length > 25){
+	window.location.replace("http://localhost:3000")
+	alert("Invalid Url");
 } else {
 	a = window.location.href.split('roomID=')[1];
 }

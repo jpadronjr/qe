@@ -52,6 +52,7 @@ const getDeck = () => {
 
 }
 
+global.windows;
 
 io.sockets.on('connection', function (socket) {
 
@@ -59,7 +60,6 @@ io.sockets.on('connection', function (socket) {
   
   socket.on('create room', function (room) {
     socket.join(room)
-
     if (!roomArray.includes(room)) {
       io.sockets.adapter.rooms.get(room).newDeck = getDeck();
       roomArray.push(room);
