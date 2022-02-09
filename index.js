@@ -74,7 +74,6 @@ io.sockets.on('connection', function (socket) {
     // }
   });
   
-
   socket.on('draw', function (roomNum) {
     //disconnect
     let card = io.sockets.adapter.rooms.get(roomNum).newDeck.shift();

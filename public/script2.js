@@ -22,7 +22,6 @@ socket.on("connect", () => {
 	socket.emit('create room', a);
 });
 
-
 socket.on('recieve card', (card) => { 
 	var img = document.createElement('img');
     img.src = `/Images/Cards/${card.Value}-${card.Suit}.png`;

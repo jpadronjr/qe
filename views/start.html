@@ -5,41 +5,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='\style.css' rel='stylesheet' />
-    <title>Tercerio</title>
+    <title>Tercerio Game</title>
     <link rel="icon" href="\logo2.jpg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 </head>
 <body id='main'>
     
-
     <div class="board">
-
         <div class='deck1' id="uDeck"></div>
         <div class='deck2'><img id='rDeck' src='/Images/logo.jpg'/></div>
-
     </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    
-    <!-- <script>
-        $(function () {
-            
-            var socket = io();
-            
-            $('form').submit(function(e){
-            
-            e.preventDefault(); // prevents page reloading
-            
-            socket.emit('chat message', $('#m').val());
-            
-            $('#m').val('');
-                return false;
-            });
-            
-            socket.on('chat message', function(msg){
-                $('#messages').append($('<li>').text(msg));
-            });
-        });
-    </script> -->
+
     <script src="/script2.js"></script>
+
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.3/d3.min.js'></script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/trianglify/0.1.5/trianglify.min.js'></script>
+    <script src="./animation.js"></script>
 </body>
 </html>

@@ -1,8 +1,12 @@
 extends layout 
 
 block content 
+
     form(id='form' method='post' action='/create')
-        label(for='name') Enter New Player Name: 
+        label(for='name') New Player Name: 
         input(type='text' name='name')
         br
-        input(type='submit' value='Add New Player')
+        input(type='submit' value='Add Player' id='form2')
+
+    a(href='/') 
+        button(id='form2') Go Back

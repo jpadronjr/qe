@@ -1,16 +1,14 @@
 extends layout 
 
 block content 
+    p 
+        a(href='/create' class='add') Add a New Player
     table(class='gridtable')
         tr  
             th Player
-            th stuff
-            th Stuff 
+            th Wins 
         each item in people
             tr 
-                td 
-                    a(href='/details/' + item.name) #{item.name}
-                td 
-                td
-    p 
-        a(href='/create') Add New Player
+                td #{item.name}
+                    //- a(href='/details/' + item.name) #{item.name}
+                td ##
