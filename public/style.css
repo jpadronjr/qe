@@ -1,38 +1,89 @@
 
-body{
-    font-family: verdana, arial, sans-serif;
-    font-size: 15px;
-    background-color: rgb(236, 167, 122); 
+
+html {
+    height: 100%;
+    background: linear-gradient(white, #4e4e4e, white);
+    background-size: .1rem 400%;
+    -webkit-animation: bg 8s infinite;
+    animation: bg 12s infinite;
     text-align: center;
+    font-family: verdana, arial, sans-serif;
 }
 
+body {
+    height: 100%;
+}
+@-webkit-keyframes bg {
+    0% {
+    background-position: 0 0;
+    }    
+    50% {
+    background-position: 0 200%;
+    }
+    100% {
+    background-position: 0 400%;
+    }
+}
+@keyframes bg {
+    0% {
+    background-position: 0 0;
+    }    
+    50% {
+    background-position: 0 200%;
+    }
+    100% {
+    background-position: 0 400%;
+    }
+}
+
+
+
 table.gridtable {
-    color: #337;
-    border-width: 1px;
-    border-color: #559;
+    color: rgb(251, 251, 255);
     border-collapse: collapse;
     text-align: center;
 }
 
 table.gridtable th {
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #559;
-    background-color: #cff;
-    text-align: left;
+    text-align: center;
+    width: 150px;
+    border-color: rgb(0, 38, 255);
+    padding: 15px;
+    border-style: groove;
+    border-radius:1vw;
+    border-width: 7px;
+    background-color: rgb(1, 26, 49);
+    font-size: 1vw;
 }
 
 table.gridtable td {
-    border-width: 1px;
-    padding: 8px;
-    border-style: solid;
-    border-color: #559;
-    background-color: #fff;
-    text-align: left;
+    text-align: center;
+    width: 150px;
+    border-color: rgb(0, 38, 255);
+    padding: 15px;
+    border-style: groove;
+    border-radius: 5vw;
+    border-width: 7px;
+    background-color: rgb(0, 38, 73);
+    font-size: 1vw;
+}
+#form{
+    margin-top: 5%;
+    text-align: center;
+}
+#form2{
+    margin-top: 5%;
+    border-style: groove;
+    border-radius: 8px;
+    border-width: 3px;
+    border-color: rgb(0, 38, 255);
+    background-color:azure;
+    color: black;
+    font-size: 1vw;
 }
 #logo{
-    width: 33%;
+    width: 60%;
+    border-radius: 1vw;
 }
 #uDeck img{
     width: 33%;
@@ -42,10 +93,58 @@ table.gridtable td {
     width: 33%;
     height: 75%
 }
+#left{
+    background-color: azure;
+    font-size: 3vh;
+    width: 40%;
+    margin: auto;
+    margin-top: 2%;
+    border-style: groove;
+    border-radius: 2vw;
+    border-width: 1vw;
+}
 
+.title{
+    font-size: 16px;
+    font-size: 5vw;
+    
+}
+.title3{
+    font-size: 2vw;
+    margin: 0px;
+}
+.btns{
+    margin-top: 20%;
+    padding: 1vw;
+    border-style: groove;
+    border-radius: 2vw;
+    border-width: 1vw;
+    background-color: aquamarine;
+    color: black;
+    font-size: 2vw;
+    width: 50%;
+}
+.add{
+    font-size: 1vw;
+    border-style: groove;
+    border-radius: 8px;
+    border-width: 3px;
+    background-color:azure;
+    border-color: rgb(0, 38, 255);
+    color: black;
+    font-size: 1vw;
+    width: 50%;
+}
+.layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
 .board{
     display: grid; 
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     max-width: 600px;
     margin: 0 auto;
 }

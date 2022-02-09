@@ -14,14 +14,14 @@ exports.index = async (req, res) => {
     //console.log("Found documents => ", findResult);
     client.close();
     res.render('index', {
-        title: 'Player List',
+        title: 'Player Statistics',
         people: findResult
     });
 };
 
 exports.create =(req, res) => {
     res.render('create',{
-        title: 'Add New Player'
+        title: 'Add a New Player'
     });
 };
 
