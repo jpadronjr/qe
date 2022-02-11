@@ -40,7 +40,7 @@ const values = ["1", "2", "3", "4", "5", "6", "7", "8", "9", "10"];
 
 const getDeck = () => {
   let deck = new Array();
-
+  
   for (let i = 0; i < suits.length; i++) {
     for (let x = 0; x < values.length; x++) {
       let card = { Value: values[x], Suit: suits[i] };
@@ -49,46 +49,48 @@ const getDeck = () => {
   }
   deck.sort(() => (Math.random() > .5) ? 1 : -1);
   return deck;
-
+  
 }
 
-global.windows;
+const checkRooms = (room) => {
+  var users = io.sockets.adapter.rooms.get(room);
+  if(users.size === 2){
+    for( var i = 0; i < roomArray.length; i++){ 
+      if (roomArray[i] === room) { 
+        roomArray.splice(i, 1); 
+      }
+    }
+  }
+  if(users.size === 0){
+    for( var i = 0; i < roomArray.length; i++){ 
+      if (roomArray[i] === room) { 
+        //delete io.sockets.adapter.rooms[room];
+        roomArray.splice(i, 1); 
+      }
+    }
+  }
+}
 
 io.sockets.on('connection', function (socket) {
 
   let newDeck;
-  
+
   socket.on('create room', function (room) {
-    socket.join(room)
+    socket.join(room);
+    
     if (!roomArray.includes(room)) {
       io.sockets.adapter.rooms.get(room).newDeck = getDeck();
       roomArray.push(room);
-      
-      //console.log('rooms added' + roomArray);
-      //console.log(`new room ${room}`)
     } 
-    //console.log(io.rooms)
-    // else if(this.rooms[room].length === 0) {
-    //     delete this.rooms[room];
-    //     console.log('deleted')
-    // }
+    checkRooms(room);
   });
-  
+
   socket.on('draw', function (roomNum) {
-    //disconnect
     let card = io.sockets.adapter.rooms.get(roomNum).newDeck.shift();
-    io.in(roomNum).emit('recieve card', card);
-    roomList = roomNum;
+    let deckSize = io.sockets.adapter.rooms.get(roomNum).newDeck.length;
+    io.in(roomNum).emit('recieve card', card, deckSize);
   });
-
-
 });
-
 
 http.listen(3000, () => {
 });
-
-
-//https://docs.gitlab.com/ee/gitlab-basics/start-using-git.html
-//https://www.atlassian.com/git/tutorials/syncing/git-pull
-//https://stackoverflow.com/questions/60966525/nginx-how-to-run-server-js-file-not-html-always-in-some-port
