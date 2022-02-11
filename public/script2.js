@@ -11,16 +11,16 @@ rDeck.addEventListener('click', adduDeck);
 var socket = io.connect();
 var a = Math.random();
 
-//if url doesnot include 'roomID=' then add it with room 
 if(!window.location.href.includes('roomID=')){
 	// window.location.href = window.location.href + 'roomID=' + a;
-	window.location.replace('http://localhost:3000/start?roomID=' + a);
+	//window.location.replace('http://localhost:3000/start?roomID=' + a);
+	window.location.replace('http://www.tercerio.juanpablo.digital/start?roomID=' + a);
 }else{
 	a = window.location.href.split('roomID=')[1];
-	
-	//if ID is longer then 25 redirect and alert
+
 	if(a.length > 25){
-		window.location.replace("http://localhost:3000")
+		//window.location.replace("http://localhost:3000")
+		window.location.replace("http://www.tercerio.juanpablo.digital")
 		alert("Invalid Url");
 	} else {
 		a = window.location.href.split('roomID=')[1];
@@ -34,7 +34,8 @@ socket.on("connect", () => {
 socket.on('recieve card', (card, deckSize, roomAmount) => { 
 	if(deckSize === 0){
 		alert("Ran Out of Cards");
-		window.location.replace("http://localhost:3000")
+		//window.location.replace("http://localhost:3000")
+		window.location.replace("http://www.tercerio.juanpablo.digital")
 	}
 	var img = document.createElement('img');
     img.src = `/Images/Cards/${card.Value}-${card.Suit}.png`;
